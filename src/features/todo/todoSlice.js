@@ -5,14 +5,7 @@ export const todoSlice = createSlice({
   name: 'todos',
   initialState: [],
   reducers: {
-    addTodo: (state, action) => {
-      const todo = {
-        id: uuid(),
-        text: action.payload,
-      };
-
-      state.push(todo);
-    },
+    addTodo: addTodoHandler,
     }
 });
 
@@ -21,3 +14,16 @@ export const { addTodo } = todoSlice.actions;
 
 // this is for configureStore
 export default todoSlice.reducer;
+
+// need to use function instead 
+// of const xxx = () => {} because we need to use this
+
+function addTodoHandler (state, action)  {
+  console.log(action.payload);
+
+  const todo = {
+    id: uuid(),
+    text: action.payload,
+  };
+  state.push(todo);
+}
