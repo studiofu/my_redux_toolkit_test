@@ -23,6 +23,10 @@ export const todoSlice = createSlice({
     },
   reducers: {
     addTodo: addTodoHandler,
+    tryAsyncCall: (state, action) => {
+      console.log('test async call');   
+      // const res = await axios('https://jsonplaceholder.typicode.com/photos')
+      }   
     },
   extraReducers: (builder) => {
     builder.addCase(fetchContent.pending, (state) => {
@@ -40,7 +44,7 @@ export const todoSlice = createSlice({
 });
 
 // this is for dispatch
-export const { addTodo } = todoSlice.actions;
+export const { addTodo, tryAsyncCall  } = todoSlice.actions;
 
 // this is for configureStore
 export default todoSlice.reducer;

@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { addTodo,fetchContent } from './features/todo/todoSlice';
+import { addTodo,fetchContent,tryAsyncCall } from './features/todo/todoSlice';
 
 function App() {
   const dispatch = useDispatch();
@@ -32,6 +32,10 @@ function App() {
 
   return (
     <div>
+      <div>
+        hahaa
+        <button onClick={() => dispatch(tryAsyncCall())}> xxx </button>
+      </div>
       <form onSubmit={addTodoHandler}>
         <input
           type='text'
